@@ -24,8 +24,10 @@ import type {
   Role,
 } from "./types";
 
-const API_URL =
-  (typeof import.meta !== "undefined" && (import.meta as any).env?.VITE_API_URL) || "";
+let rawApiUrl = (typeof import.meta !== "undefined" && (import.meta as any).env?.VITE_API_URL) || "";
+if (rawApiUrl.endsWith('/')) rawApiUrl = rawApiUrl.slice(0, -1);
+if (rawApiUrl && !rawApiUrl.endsWith('/api')) rawApiUrl += '/api';
+const API_URL = rawApiUrl;
 
 const USE_MOCK = !API_URL;
 

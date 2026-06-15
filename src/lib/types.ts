@@ -72,7 +72,7 @@ export interface Payment {
   amountCents: number;
   currency: string;
   status: PaymentStatus;
-  provider: "stripe" | "paddle" | "manual";
+  provider: "stripe" | "paddle" | "razorpay" | "manual";
   createdAt: string;
 }
 
