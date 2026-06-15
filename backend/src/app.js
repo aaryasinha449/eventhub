@@ -17,6 +17,15 @@ import notificationRoutes from './routes/notification.routes.js';
 import userRoutes from './routes/user.routes.js';
 
 export const app = express();
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
+app.get('/api/test', (req, res) => {
+  res.json({ success: true });
+});
+
+
 
 app.use(helmet());
 app.use(cors({ origin: env.CORS_ORIGIN === '*' ? true : env.CORS_ORIGIN.split(',') }));
